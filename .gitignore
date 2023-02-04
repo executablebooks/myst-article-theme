@@ -1,0 +1,14 @@
+node_modules
+
+.cache
+.env
+.vercel
+.output
+.turbo
+.yalc
+yalc.lock
+
+/public/build
+/api/*
+
+/app/styles/app.css
