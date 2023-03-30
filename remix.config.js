@@ -28,6 +28,7 @@ module.exports = {
     '@myst-theme/icons',
     '@myst-theme/site',
     '@myst-theme/jupyter',
+    '@myst-theme/frontmatter',
     'react-syntax-highlighter',
     '@jupyterlab/rendermime',
     '@jupyterlab/rendermime-interfaces',
