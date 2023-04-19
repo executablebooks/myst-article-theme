@@ -6,7 +6,7 @@ import {
   ContentBlocks,
   getMetaTagsForArticle,
   KatexCSS,
-  useNavigationHeight,
+  useOutlineHeight,
   DocumentOutline,
   DEFAULT_NAV_HEIGHT,
   Navigation,
@@ -56,13 +56,10 @@ export function ArticlePageAndNavigation({
   hide_toc?: boolean;
   children: React.ReactNode;
 }) {
-  const { ref, height } = useNavigationHeight();
   return (
     <UiStateProvider>
       <TabStateProvider>
-        <article ref={ref} className="article content article-grid article-grid-gap">
-          {children}
-        </article>
+        <article className="article content article-grid article-grid-gap">{children}</article>
       </TabStateProvider>
     </UiStateProvider>
   );
@@ -165,13 +162,13 @@ export function ArticlePage({ article }: { article: PageLoader }) {
 }
 
 export default function Page({ top = DEFAULT_NAV_HEIGHT }: { top?: number }) {
-  const { ref, height } = useNavigationHeight();
+  // const { container, outline } = useOutlineHeight();
   const article = useLoaderData<PageLoader>() as PageLoader;
   const { hide_outline, hide_toc } = (article.frontmatter as any)?.design ?? {};
   return (
     <ArticlePageAndNavigation hide_toc={hide_toc}>
       <ArticlePage article={article} />
-      {/* {!hide_outline && <DocumentOutline top={top} height={height} />} */}
+      {/* {!hide_outline && <DocumentOutline outlineRef={outline} top={top} height={height} />} */}
     </ArticlePageAndNavigation>
   );
 }
