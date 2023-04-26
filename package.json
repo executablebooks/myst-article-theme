@@ -4,6 +4,7 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
+    "postinstall": "patch-package --patch-dir patches",
     "build:css": "tailwindcss -m -i ./styles/app.css -o app/styles/app.css",
     "build": "npm run build:css && remix build",
     "dev:css": "tailwindcss -w -i ./styles/app.css -o app/styles/app.css",
@@ -37,6 +38,7 @@
     "@vercel/node": "^2.9.12",
     "concurrently": "^7.6.0",
     "eslint": "^8.23.1",
+    "patch-package": "^7.0.0",
     "prettier": "latest",
     "tailwindcss": "^3.2.7",
     "typescript": "^4.9.5"
